@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import EntryView from '../EntryView';
 import { EntryInterface } from '../../interfaces';
 
@@ -31,16 +30,12 @@ export default function ListView(
         )
         .map((entry: EntryInterface) => (
           (filterValue === statuses.all || filterValue === entry.status) && (
-          <Link
-            to={`/${entry.id}`}
-            key={entry.id}
-          >
             <EntryView
+              key={entry.id}
               entry={entry}
               handleDelete={handleDelete}
               handleToggleStatus={handleToggleStatus}
             />
-          </Link>
           )
         ))}
     </div>

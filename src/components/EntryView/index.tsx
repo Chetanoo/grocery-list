@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Card, CardContent, Typography, Box, CardActions, Button,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { EntryInterface } from '../../interfaces';
 import { formatDate } from '../../helpers/helpers';
 
@@ -23,13 +24,17 @@ export default function EntryView({
       <Card variant="outlined">
         <>
           <CardContent>
-            <Typography
-              sx={{ fontSize: 25 }}
-              variant="h4"
-              component="div"
+            <Link
+              to={`/${id}`}
             >
-              {name}
-            </Typography>
+              <Typography
+                sx={{ fontSize: 25 }}
+                variant="h4"
+                component="div"
+              >
+                {name}
+              </Typography>
+            </Link>
             <Typography
               sx={{ fontSize: 16 }}
               variant="h6"
