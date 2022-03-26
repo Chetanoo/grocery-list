@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import {
+  Routes,
+  Route,
+} from 'react-router-dom';
 import classes from './App.module.css';
-import ListView from './components/ListView';
 import { manageInitialState } from './helpers/initialState';
 import { EntryInterface } from './interfaces';
-import NewEntry from './components/NewEntry';
 import { setLocalStorageEntries } from './helpers/helpers';
-import Filters from './components/Filters';
 import { inputTypes, priorities, statuses } from './constants/constants';
+import MainRouteComponent from './components/MainRouteComponent';
+import EntryRouteComponent from './components/EntryRouteComponent';
+import NoPage from './components/NoPage';
 
 function App(): JSX.Element {
   const [entries, setEntries] = useState(manageInitialState());
@@ -81,23 +85,38 @@ function App(): JSX.Element {
 
   return (
     <div className={classes.App}>
-      <NewEntry
-        handleAddEntry={handleAddEntry}
-        name={newName}
-        priority={newPriority}
-        status={newStatus}
-        handleInputChange={handleInputChange}
-      />
-      <Filters
-        filterValue={filterValue}
-        handleInputChange={handleInputChange}
-      />
-      <ListView
-        entries={entries}
-        handleDelete={handleDelete}
-        handleToggleStatus={handleToggleStatus}
-        filterValue={filterValue}
-      />
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <MainRouteComponent
+              newName={newName}
+              newPriority={newPriority}
+              newStatus={newStatus}
+              filterValue={filterValue}
+              handleAddEntry={handleAddEntry}
+              handleInputChange={handleInputChange}
+              entries={entries}
+              handleDelete={handleDelete}
+              handleToggleStatus={handleToggleStatus}
+            />
+        )}
+        />
+        <Route
+          path="/:entryId"
+          element={(
+            <EntryRouteComponent
+              entries={entries}
+              handleDelete={handleDelete}
+              handleToggleStatus={handleToggleStatus}
+            />
+)}
+        />
+        <Route
+          path="*"
+          element={<NoPage />}
+        />
+      </Routes>
     </div>
   );
 }
