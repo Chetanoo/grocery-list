@@ -32,6 +32,7 @@ function App(): JSX.Element {
           priority: newPriority,
         },
       ];
+      setNewName('');
       setEntries(newEntries);
       setLocalStorageEntries(newEntries);
     }
