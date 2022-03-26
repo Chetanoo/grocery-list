@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Card, CardContent, Typography, Box, CardActions, Button,
+  Card, CardContent, Typography, Box, CardActions, Button, Tooltip,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { EntryInterface } from '../../interfaces';
@@ -27,13 +27,16 @@ export default function EntryView({
             <Link
               to={`/${id}`}
             >
-              <Typography
-                sx={{ fontSize: 25 }}
-                variant="h4"
-                component="div"
-              >
-                {name}
-              </Typography>
+              <Tooltip title="Click to open entry page">
+                <Typography
+                  sx={{ fontSize: 25, width: '100%' }}
+                  variant="h4"
+                  component="div"
+                  className={classes.name}
+                >
+                  {name}
+                </Typography>
+              </Tooltip>
             </Link>
             <Typography
               sx={{ fontSize: 16 }}
