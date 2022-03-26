@@ -16,7 +16,7 @@ export default function MainRouteComponent({
   handleToggleStatus,
 }: {
     newName: string,
-    newPriority: string,
+    newPriority: number,
     newStatus: string,
     filterValue: string,
     entries: Array<EntryInterface>,

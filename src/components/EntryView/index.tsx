@@ -80,7 +80,6 @@ export default function EntryView({
         </>
       </Card>
     </Box>
-
   );
 }
 

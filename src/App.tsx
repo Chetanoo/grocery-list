@@ -55,7 +55,7 @@ function App(): JSX.Element {
         setNewName((event.target as HTMLInputElement).value);
         break;
       case inputTypes.priority:
-        setNewPriority((event.target as HTMLInputElement).value);
+        setNewPriority(parseInt((event.target as HTMLInputElement).value, 10));
         break;
       case inputTypes.status:
         setNewStatus((event.target as HTMLInputElement).value);

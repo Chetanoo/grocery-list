@@ -25,7 +25,7 @@ export default function ListView(
           (
             a: EntryInterface,
             b: EntryInterface,
-          ) => parseInt(a.priority, 10) - parseInt(b.priority, 10)
+          ) => a.priority - b.priority
               || a.name
                 .toLocaleLowerCase()
                 .localeCompare(b.name.toLocaleLowerCase()),

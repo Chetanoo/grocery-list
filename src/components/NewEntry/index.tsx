@@ -13,7 +13,7 @@ export default function NewEntry(
   }: {
     name: string,
     status: string,
-    priority: string,
+    priority: number,
     handleInputChange: (e: React.ChangeEvent, inputType: string) => void,
     handleAddEntry: () => void,
   },
