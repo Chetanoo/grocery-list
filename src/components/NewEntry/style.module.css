@@ -1,0 +1,14 @@
+.new-entry-box {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.text-fields-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.text-field {
+    margin: 0 5px 5px 5px;
+}
