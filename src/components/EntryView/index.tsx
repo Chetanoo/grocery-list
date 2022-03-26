@@ -27,7 +27,7 @@ export default function EntryView({
             <Link
               to={`/${id}`}
             >
-              <Tooltip title="Click to open entry page">
+              <Tooltip title="Click to open entry page" placement="top-start">
                 <Typography
                   sx={{ fontSize: 25, width: '100%' }}
                   variant="h4"
