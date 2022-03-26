@@ -1,5 +1,5 @@
 import React from 'react';
-import EntryView from '../EntryView';
+import { MemorizedEntryView } from '../EntryView';
 import { EntryInterface } from '../../interfaces';
 
 import classes from './style.module.css';
@@ -26,11 +26,13 @@ export default function ListView(
             a: EntryInterface,
             b: EntryInterface,
           ) => parseInt(a.priority, 10) - parseInt(b.priority, 10)
-              || a.name.localeCompare(b.name),
+              || a.name
+                .toLocaleLowerCase()
+                .localeCompare(b.name.toLocaleLowerCase()),
         )
         .map((entry: EntryInterface) => (
           (filterValue === statuses.all || filterValue === entry.status) && (
-            <EntryView
+            <MemorizedEntryView
               key={entry.id}
               entry={entry}
               handleDelete={handleDelete}

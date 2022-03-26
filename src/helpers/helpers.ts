@@ -3,7 +3,7 @@ import { EntryInterface } from '../interfaces';
 import { entryKey } from '../constants/constants';
 
 export function formatDate(date: Date): string {
-  return moment(date).format('Do MMM YYYY, h:mm');
+  return moment(date).format('Do MMM YYYY, h:mm a');
 }
 
 export function setLocalStorageEntries(

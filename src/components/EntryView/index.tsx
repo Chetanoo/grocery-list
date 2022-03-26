@@ -80,3 +80,5 @@ export default function EntryView({
 
   );
 }
+
+export const MemorizedEntryView = React.memo(EntryView);
