@@ -17,7 +17,7 @@ export const inputTypes = {
 };
 
 export enum priorities {
-  one,
+  one = 1,
   two,
   three,
   four,
