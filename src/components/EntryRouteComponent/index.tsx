@@ -1,8 +1,9 @@
 import React from 'react';
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
-import { EntryInterface } from '../../interfaces';
+import { EntryInterface, StatusHistoryItem } from '../../interfaces';
 import EntryView from '../EntryView';
+import { formatDate } from '../../helpers/helpers';
 
 export default function EntryRouteComponent({
   entries,
@@ -23,6 +24,18 @@ export default function EntryRouteComponent({
       { entry ? (
         <>
           <Button onClick={() => navigate('/')}>BACK TO MAIN PAGE</Button>
+          { entry.statusHistory && (
+          <div>
+
+            { entry.statusHistory.map((item: StatusHistoryItem) => (
+              <div>
+                {item.status}
+                :
+                {formatDate(item.statusChanged)}
+              </div>
+            ))}
+          </div>
+          )}
           <EntryView
             entry={entry}
             handleDelete={handleDelete}

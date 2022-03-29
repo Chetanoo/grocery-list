@@ -30,6 +30,7 @@ function App(): JSX.Element {
           status: newStatus,
           statusChanged: new Date(),
           priority: newPriority,
+          statusHistory: [{ status: newStatus, statusChanged: new Date() }],
         },
       ];
       setNewName('');
@@ -73,11 +74,17 @@ function App(): JSX.Element {
       if (entry.id !== id) {
         return entry;
       }
+      const newEntryStatus = entry.status === statuses.have
+        ? statuses.ranOut : statuses.have;
       return {
         ...entry,
-        status:
-            entry.status === statuses.have ? statuses.ranOut : statuses.have,
+        status: newEntryStatus,
         statusChanged: new Date(),
+        statusHistory:
+            [
+              ...entry.statusHistory,
+              { status: newEntryStatus, statusChanged: new Date() },
+            ],
       };
     });
     setEntries(newEntries);

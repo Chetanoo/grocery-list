@@ -11,6 +11,7 @@ export function manageInitialState(): Array<EntryInterface> {
       status: statuses.have,
       statusChanged: new Date(),
       priority: priorities.four,
+      statusHistory: [{ status: statuses.have, statusChanged: new Date() }],
     },
     {
       id: uuidv4(),
@@ -18,6 +19,7 @@ export function manageInitialState(): Array<EntryInterface> {
       status: statuses.have,
       statusChanged: new Date(),
       priority: priorities.one,
+      statusHistory: [{ status: statuses.have, statusChanged: new Date() }],
     },
     {
       id: uuidv4(),
@@ -25,6 +27,7 @@ export function manageInitialState(): Array<EntryInterface> {
       status: statuses.ranOut,
       statusChanged: new Date(),
       priority: priorities.five,
+      statusHistory: [{ status: statuses.ranOut, statusChanged: new Date() }],
     },
   ];
   const entries = localStorage.getItem(entryKey);
